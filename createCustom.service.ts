@@ -33,10 +33,7 @@ export const createCustomerBad = async (
     createdAt,
     updatedAt,
   };
-  const response = await api.post<CustomerResponse>(
-    `/ecommerce/customers`,
-    payload
-  );
+  const response = await api.post<CustomerResponse>(`/customer`, payload);
   if (!response.ok)
     throw new Error(((response.originalError as unknown) as ServerError).type);
   return response.data;
